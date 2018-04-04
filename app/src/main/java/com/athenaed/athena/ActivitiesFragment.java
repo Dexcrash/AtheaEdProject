@@ -22,9 +22,9 @@ public class ActivitiesFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view =  inflater.inflate(R.layout.fragment_classes,container,false);
+        View view =  inflater.inflate(R.layout.fragment_activities,container,false);
 
-        buttonActivities = view.findViewById(R.id.classesButton1);
+        buttonActivities = view.findViewById(R.id.activitiesButton1);
 
         buttonActivities.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -19,9 +19,9 @@ public class ProfileFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view =  inflater.inflate(R.layout.fragment_classes,container,false);
+        View view =  inflater.inflate(R.layout.fragment_profile,container,false);
 
-        buttonProfile = view.findViewById(R.id.classesButton1);
+        buttonProfile = view.findViewById(R.id.profileButton1);
 
         buttonProfile.setOnClickListener(new View.OnClickListener() {
             @Override
