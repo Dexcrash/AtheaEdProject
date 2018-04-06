@@ -10,7 +10,8 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.athenaed.athena.mundo.ProfesorTemp;
+import com.athenaed.athena.mundo.Profesor;
+import com.athenaed.athena.mundo.Clase;
 
 
 public class ProfileFragment extends Fragment {
@@ -18,9 +19,12 @@ public class ProfileFragment extends Fragment {
 
     private EditText profesor;
     private EditText institucion;
-    private TextView clase;
     private TextView porcentaje1;
-    private ProgressBar barra;
+    private ProgressBar barra1;
+    private TextView porcentaje2;
+    private ProgressBar barra2;
+    private TextView porcentaje3;
+    private ProgressBar barra3;
 
 
     @Nullable
@@ -28,22 +32,40 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_profile,container,false);
 
-        ProfesorTemp prof = new ProfesorTemp("Andes", "Mario");
+        Profesor prof = new Profesor("Andes", "Mario");
+        Clase clasetemp1 = new Clase(3,"auditivo");
+        Clase clasetemp2 = new Clase(4,"auditivo");
+        Clase clasetemp3 = new Clase(4,"kinestesico");
+        Clase clasetemp4 = new Clase(5,"kinestesico");
+        Clase clasetemp5 = new Clase(3,"visual");
+        Clase clasetemp6 = new Clase(5,"visual");
+        prof.agregarClase(clasetemp1);
+        prof.agregarClase(clasetemp2);
+        prof.agregarClase(clasetemp3);
+        prof.agregarClase(clasetemp4);
+        prof.agregarClase(clasetemp5);
+        prof.agregarClase(clasetemp6);
 
         profesor = view.findViewById(R.id.profesor);
-        profesor.setText(profesor.getText() + prof.nombre);
+        profesor.setText(profesor.getText() + " " + prof.nombre);
 
         institucion = view.findViewById(R.id.institucion);
-        institucion.setText(profesor.getText() + prof.institucion);
-
-        clase = view.findViewById(R.id.clase1);
-        clase.setText(profesor.getText() + " 1");
+        institucion.setText(institucion.getText() + " " + prof.institucion);
 
         porcentaje1 = view.findViewById(R.id.porcentaje1);
-        porcentaje1.setText(prof.clases.get(0).rating + "%");
+        porcentaje1.setText(prof.promedioVisual + "");
+        barra1 = view.findViewById(R.id.progressBar1);
+        barra1.setProgress(prof.promedioVisual*20);
 
-        barra = view.findViewById(R.id.progressBar);
-        barra.setProgress(prof.clases.get(0).rating);
+        porcentaje2 = view.findViewById(R.id.porcentaje2);
+        porcentaje2.setText(prof.promedioKinestesico + "");
+        barra2 = view.findViewById(R.id.progressBar2);
+        barra2.setProgress(prof.promedioKinestesico*20);
+
+        porcentaje3 = view.findViewById(R.id.porcentaje3);
+        porcentaje3.setText(prof.promedioAuditivo + "");
+        barra3 = view.findViewById(R.id.progressBar3);
+        barra3.setProgress(prof.promedioAuditivo*20);
 
         return view;
     }
