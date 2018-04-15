@@ -1,30 +1,37 @@
 package com.athenaed.athena;
 
-import android.os.Bundle;
 import android.support.design.widget.TabLayout;
+import android.support.v7.app.AppCompatActivity;
+
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+
+import com.athenaed.athena.activities.ActivitiesFragment;
+import com.athenaed.athena.classes.ClassesFragment;
+import com.athenaed.athena.profile.ProfileFragment;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClassActivity  extends AppCompatActivity {
+public class TabbedMain extends AppCompatActivity {
 
-    private static final String TAG = "ClassActivity";
+    private static final String TAG = "TabbedActivity";
 
-    private ClassActivity.SectionsPagerAdapter mSectionsPagerAdapter;
+    private SectionsPagerAdapter mSectionsPagerAdapter;
 
     private ViewPager mViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.single_class_tabbed);
 
-        mSectionsPagerAdapter = new ClassActivity.SectionsPagerAdapter(getSupportFragmentManager());
+
+        setContentView(R.layout.activity_tabbed);
+
+        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         mViewPager = (ViewPager) findViewById(R.id.container);
         setupViewerPager(mViewPager);
@@ -36,9 +43,10 @@ public class ClassActivity  extends AppCompatActivity {
 
 
     private void setupViewerPager(ViewPager viewPager){
-        ClassActivity.SectionsPagerAdapter adapter = new ClassActivity.SectionsPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new Class_infoFragment(), "Information");
-        adapter.addFragment(new Class_activitiesFragment(), "Activities");
+        SectionsPagerAdapter adapter = new SectionsPagerAdapter(getSupportFragmentManager());
+        adapter.addFragment(new ProfileFragment(), "Profile");
+        adapter.addFragment(new ClassesFragment(), "Classes");
+        adapter.addFragment(new ActivitiesFragment(), "Activities");
         viewPager.setAdapter(adapter);
     }
 

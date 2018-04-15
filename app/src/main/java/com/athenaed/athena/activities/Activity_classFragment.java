@@ -1,4 +1,4 @@
-package com.athenaed.athena;
+package com.athenaed.athena.activities;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

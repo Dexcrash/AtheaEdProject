@@ -1,4 +1,4 @@
-package com.athenaed.athena;
+package com.athenaed.athena.classes;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.athenaed.athena.R;
 import com.athenaed.athena.mundo.AthenaClass;
 
 public class Class_infoFragment extends Fragment {

@@ -1,4 +1,4 @@
-package com.athenaed.athena;
+package com.athenaed.athena.activities;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,6 +10,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.support.v4.app.Fragment;
 
+import com.athenaed.athena.R;
 import com.athenaed.athena.mundo.AthenaActivity;
 
 public class Activity_infoFragment extends Fragment {
@@ -30,7 +31,7 @@ public class Activity_infoFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_activity_info,container,false);
         String descripcion = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat";
-        AthenaActivity act = new AthenaActivity("Movie",descripcion,30,40,60);
+        AthenaActivity act = new AthenaActivity("Movie",descripcion,30,40,60, 5);
 
         titulo = view.findViewById(R.id.activity);
         titulo.setText(titulo.getText() + " " + act.name);
