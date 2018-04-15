@@ -196,7 +196,7 @@
             app:layout_constraintHorizontal_bias="0.504"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/classImage" />
+            app:srcCompat="@drawable/classimage" />
 
     </android.support.constraint.ConstraintLayout>
 

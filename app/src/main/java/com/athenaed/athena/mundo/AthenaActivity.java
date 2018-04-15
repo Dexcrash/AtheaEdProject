@@ -2,11 +2,11 @@ package com.athenaed.athena.mundo;
 
 public class AthenaActivity {
 
-    String name;
-    String description;
-    int kinesthetic;
-    int visual;
-    int auditory;
+    public String name;
+    public String description;
+    public int kinesthetic;
+    public int visual;
+    public int auditory;
 
     public AthenaActivity(String name, String description, int kinesthetic, int visual, int auditory) {
         this.name = name;

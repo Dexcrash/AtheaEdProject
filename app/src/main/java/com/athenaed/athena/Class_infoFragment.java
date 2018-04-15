@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.athenaed.athena.mundo.Clase;
+import com.athenaed.athena.mundo.AthenaClass;
 
 public class Class_infoFragment extends Fragment {
 
@@ -23,20 +23,20 @@ public class Class_infoFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_class_info, container, false);
 
-        Clase clasetemp = new Clase();
-        clasetemp.setVisual(40);
-        clasetemp.setKinestesico(50);
-        clasetemp.setKinestesico(60);
+        AthenaClass clasetemp = new AthenaClass("CLASE","Mamadas");
+        clasetemp.auditory = 50;
+        clasetemp.visual = 40;
+        clasetemp.kinesthetic = 60;
 
         porcentaje1 = view.findViewById(R.id.porcentaje1);
-        porcentaje1.setText(clasetemp.auditivo + "");
+        porcentaje1.setText(clasetemp.auditory + "");
         barra1 = view.findViewById(R.id.progressBar1);
-        barra1.setProgress(clasetemp.auditivo);
+        barra1.setProgress(clasetemp.auditory);
 
         porcentaje2 = view.findViewById(R.id.porcentaje2);
-        porcentaje2.setText(clasetemp.kinestesico + "");
+        porcentaje2.setText(clasetemp.kinesthetic + "");
         barra2 = view.findViewById(R.id.progressBar2);
-        barra2.setProgress(clasetemp.kinestesico);
+        barra2.setProgress(clasetemp.kinesthetic);
 
         porcentaje3 = view.findViewById(R.id.porcentaje3);
         porcentaje3.setText(clasetemp.visual + "");

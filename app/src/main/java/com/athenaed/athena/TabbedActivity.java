@@ -19,11 +19,13 @@ import android.view.ViewGroup;
 
 import android.widget.TextView;
 
+import com.athenaed.athena.mundo.AthenaClass;
+import com.athenaed.athena.mundo.AthenaTeacher;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class TabbedActivity extends AppCompatActivity {
-
 
     private static final String TAG = "TabbedActivity";
 
@@ -34,6 +36,8 @@ public class TabbedActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
         setContentView(R.layout.activity_tabbed);
 
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());

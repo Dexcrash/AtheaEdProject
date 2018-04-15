@@ -24,14 +24,6 @@ public class ActivitiesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_activities,container,false);
 
-        buttonActivities = view.findViewById(R.id.activitiesButton1);
-
-        buttonActivities.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getActivity(),"ACT",Toast.LENGTH_SHORT).show();
-            }
-        });
         return view;
     }
 }

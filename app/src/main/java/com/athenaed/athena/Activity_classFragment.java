@@ -10,8 +10,6 @@ import android.view.ViewGroup;
 public class Activity_classFragment extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_activity_classes, container, false);
-
-        return view;
+      return null;
     }
 }
