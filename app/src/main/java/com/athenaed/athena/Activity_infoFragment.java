@@ -1,6 +1,5 @@
 package com.athenaed.athena;
 
-import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -9,12 +8,13 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.support.v4.app.Fragment;
 
 import com.athenaed.athena.mundo.Actividad;
 
-public class ActivityFragment extends Fragment {
+public class Activity_infoFragment extends Fragment {
 
-    private final static String TAG ="ActivitiesFragment";
+    private final static String TAG ="Activity_infoFragment";
 
     private EditText titulo;
     private TextView descripcion2;
@@ -28,9 +28,14 @@ public class ActivityFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view =  inflater.inflate(R.layout.fragment_activity,container,false);
+        View view =  inflater.inflate(R.layout.fragment_activity_info,container,false);
         String descripcion = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat";
-        Actividad act = new Actividad("Movie", descripcion, 30,40,60);
+        Actividad act = new Actividad();
+        act.setNombre("Movie");
+        act.setDescripcion(descripcion);
+        act.setAuditiva(30);
+        act.setKinestesica(40);
+        act.setVisual(60);
 
         titulo = view.findViewById(R.id.activity);
         titulo.setText(titulo.getText() + " " + act.nombre);
