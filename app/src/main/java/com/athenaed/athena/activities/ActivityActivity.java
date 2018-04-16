@@ -24,23 +24,19 @@ public class ActivityActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tabbed);
-
+        setContentView(R.layout.tabbed_activities);
         mSectionsPagerAdapter = new ActivityActivity.SectionsPagerAdapter(getSupportFragmentManager());
-
         mViewPager = (ViewPager) findViewById(R.id.container);
         setupViewerPager(mViewPager);
-
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
-
-    }
+     }
 
 
     private void setupViewerPager(ViewPager viewPager){
         ActivityActivity.SectionsPagerAdapter adapter = new ActivityActivity.SectionsPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new Activity_infoFragment(), "Information");
-        adapter.addFragment(new Activity_classFragment(), "Activities");
+        adapter.addFragment(new Activity_stepsFragment(), "Activities");
         viewPager.setAdapter(adapter);
     }
 
