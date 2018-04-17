@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 
 import com.athenaed.athena.R;
 import com.athenaed.athena.mundo.AthenaClass;
+import com.athenaed.athena.mundo.AthenaStudent;
 import com.athenaed.athena.mundo.AthenaTeacher;
 
 import java.util.ArrayList;
@@ -55,6 +56,14 @@ public class ClassesFragment extends Fragment {
         prof.addAthenaClass(clasetemp4);
         prof.addAthenaClass(clasetemp5);
         prof.addAthenaClass(clasetemp6);
+
+
+        prof.addAthenaStudent(new AthenaStudent("Camilo Sánchez"));
+        prof.addAthenaStudent(new AthenaStudent("Andrés Bejarano"));
+        prof.addAthenaStudent(new AthenaStudent("Juan Diego Correa"));
+        prof.addAthenaStudent(new AthenaStudent("Gabriel Pinto"));
+        prof.addAthenaStudent(new AthenaStudent("David Acuña"));
+        prof.addAthenaStudent(new AthenaStudent("Julian Arenas"));
 
         data = prof.classes;
         View view =  inflater.inflate(R.layout.fragment_classes,container,false);

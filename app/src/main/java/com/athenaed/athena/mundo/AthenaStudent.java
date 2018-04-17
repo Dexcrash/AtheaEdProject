@@ -7,10 +7,11 @@ import java.util.ArrayList;
 
 public class AthenaStudent implements Parcelable {
 
-    String name;
-    int kinesthetic;
-    int visual;
-    int auditory;
+    public String name;
+    public int img_profile;
+    public int kinesthetic;
+    public int visual;
+    public int auditory;
 
     public AthenaStudent(String name) {
         this.name = name;

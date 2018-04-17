@@ -13,6 +13,7 @@ public class AthenaTeacher implements Parcelable {
     public int visual;
     public int auditory;
     public ArrayList<AthenaClass> classes = new ArrayList<>();
+    public ArrayList<AthenaStudent> students = new ArrayList<>();
 
     public AthenaTeacher(String institution, String name) {
         this.institution = institution;
@@ -24,6 +25,9 @@ public class AthenaTeacher implements Parcelable {
 
     public void addAthenaClass(AthenaClass athenaClass){
         this.classes.add(athenaClass);
+    }
+    public void addAthenaStudent(AthenaStudent athenaStudent){
+        this.students.add(athenaStudent);
     }
 
     @Override
