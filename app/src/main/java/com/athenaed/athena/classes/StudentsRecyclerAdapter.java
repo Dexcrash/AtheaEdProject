@@ -45,11 +45,10 @@ public class StudentsRecyclerAdapter extends RecyclerView.Adapter<StudentsRecycl
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(mContext,ClassActivity.class);
+                Intent intent = new Intent(mContext,StudentActivity.class);
 
                 // passing data to the book activity
-                intent.putExtra("Title",mData.get(position).name);
-                intent.putExtra("Thumbnail",mData.get(position).img_profile);
+                intent.putExtra("name",mData.get(position).name);
                 // start the activity
                 mContext.startActivity(intent);
 
