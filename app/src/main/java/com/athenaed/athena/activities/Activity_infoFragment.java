@@ -31,7 +31,7 @@ public class Activity_infoFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_activity_info,container,false);
         String descripcion = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat";
-        AthenaActivity act = new AthenaActivity("Movie",descripcion,30,40,60, 5);
+        AthenaActivity act = new AthenaActivity("Movie",descripcion,30,40,60, 5, null,null);
 
         titulo = view.findViewById(R.id.activity);
         titulo.setText(titulo.getText() + " " + act.name);

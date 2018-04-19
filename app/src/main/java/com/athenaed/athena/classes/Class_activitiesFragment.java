@@ -23,11 +23,11 @@ public class Class_activitiesFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        data.add(new AthenaActivity("Actividad1","Holoolololo", 40,60,50,5));
-        data.add(new AthenaActivity("Actividad2","Holoolololo", 40,60,50,5));
-        data.add(new AthenaActivity("Actividad3","Holoolololo", 40,60,50,5));
-        data.add(new AthenaActivity("Actividad4","Holoolololo", 40,60,50,5));
-        data.add(new AthenaActivity("Actividad5","Holoolololo", 40,60,50,5));
+        data.add(new AthenaActivity("nombre1","jola",5,5,5,5,null,null));
+        data.add(new AthenaActivity("nombre2","jola",5,5,5,5,null,null));
+        data.add(new AthenaActivity("nombre3","jola",5,5,5,5,null,null));
+        data.add(new AthenaActivity("nombre4","jola",5,5,5,5,null,null));
+        data.add(new AthenaActivity("nombre5","jola",5,5,5,5,null,null));
 
         View view =  inflater.inflate(R.layout.fragment_activities,container,false);
         RecyclerView myrv = (RecyclerView) view.findViewById(R.id.activities_recycler);
