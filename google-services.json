@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "395477185477",
+    "firebase_url": "https://athenaed-project.firebaseio.com",
+    "project_id": "athenaed-project",
+    "storage_bucket": "athenaed-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:395477185477:android:b4ea6335abb2f8fc",
+        "android_client_info": {
+          "package_name": "com.athenaed.athena"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "395477185477-7h9ei931ijt7idmcf7hf325euk6lva56.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.athenaed.athena",
+            "certificate_hash": "9df146d1a756d2c1b1c24d7d0ffe0beee4410fc3"
+          }
+        },
+        {
+          "client_id": "395477185477-95g9bk96ekskb028ocrscho15oa56bie.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsoQcZn-FXpVjSG8KfQc6Hc168UimZ8Ds"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "395477185477-95g9bk96ekskb028ocrscho15oa56bie.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
