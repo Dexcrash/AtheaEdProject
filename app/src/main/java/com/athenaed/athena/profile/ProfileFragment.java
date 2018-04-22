@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -18,14 +19,15 @@ import com.athenaed.athena.mundo.AthenaTeacher;
 public class ProfileFragment extends Fragment {
     private final static String TAG ="ProfileFragment";
 
-    private EditText profesor;
-    private EditText institucion;
+    private TextView profesor;
+    private TextView institucion;
     private TextView porcentaje1;
     private ProgressBar barra1;
     private TextView porcentaje2;
     private ProgressBar barra2;
     private TextView porcentaje3;
     private ProgressBar barra3;
+    private ImageView foto;
 
 
     @Nullable
@@ -33,37 +35,16 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_profile,container,false);
 
-        AthenaTeacher prof = new AthenaTeacher("Andes", "Mario");
-        AthenaClass clasetemp1 = new AthenaClass("Clase1", "ABCDE");
-        clasetemp1.average = 3;
-        clasetemp1.type = "auditivo";
-        AthenaClass clasetemp2 = new AthenaClass("Clase1", "ABCDE");
-        clasetemp2.average =4;
-        clasetemp2.type = "auditivo";
-        AthenaClass clasetemp3 = new AthenaClass("Clase1", "ABCDE");
-        clasetemp3.average = 4;
-        clasetemp3.type = "kinestesico";
-        AthenaClass clasetemp4 = new AthenaClass("Clase1", "ABCDE");
-        clasetemp4.average = 5;
-        clasetemp4.type = "kinestesico";
-        AthenaClass clasetemp5 = new AthenaClass("Clase1", "ABCDE");
-        clasetemp5.average = 3;
-        clasetemp5.type = "visual";
-        AthenaClass clasetemp6 = new AthenaClass("Clase1", "ABCDE");
-        clasetemp6.average = 5;
-        clasetemp6.type = "visual";
-        prof.addAthenaClass(clasetemp1);
-        prof.addAthenaClass(clasetemp2);
-        prof.addAthenaClass(clasetemp3);
-        prof.addAthenaClass(clasetemp4);
-        prof.addAthenaClass(clasetemp5);
-        prof.addAthenaClass(clasetemp6);
+        AthenaTeacher prof = new AthenaTeacher("Colegio de Prueba XVI", "Julia Torres Sarmiento");
 
-        profesor = view.findViewById(R.id.profesor);
-        profesor.setText(profesor.getText() + " " + prof.name);
+        profesor = view.findViewById(R.id.teacher_name);
+        profesor.setText(prof.name);
 
-        institucion = view.findViewById(R.id.institucion);
-        institucion.setText(institucion.getText() + " " + prof.institution);
+        foto = view.findViewById(R.id.teacher_image);
+        foto.setImageResource(R.drawable.teacher_1);
+
+        institucion = view.findViewById(R.id.teacher_institucion);
+        institucion.setText(prof.institution);
 
         porcentaje1 = view.findViewById(R.id.porcentaje1);
         porcentaje1.setText(60 + "");

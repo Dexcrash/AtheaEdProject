@@ -37,7 +37,14 @@ public class ClassActivity  extends AppCompatActivity {
 
     private void setupViewerPager(ViewPager viewPager){
         ClassActivity.SectionsPagerAdapter adapter = new ClassActivity.SectionsPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new Class_infoFragment(), "Information");
+        Fragment info = new Class_infoFragment();
+        Bundle b = new Bundle();
+        b.putString("Name", (String) getIntent().getExtras().get("Name"));
+        b.putString("Description", (String) getIntent().getExtras().get("Description"));
+        b.putInt("Thumbnail", (Integer) getIntent().getExtras().get("Thumbnail"));
+        info.setArguments(b);
+
+        adapter.addFragment(info, "Information");
         adapter.addFragment(new Class_activitiesFragment(), "Activities");
         viewPager.setAdapter(adapter);
     }

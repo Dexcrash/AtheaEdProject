@@ -17,9 +17,10 @@ public class AthenaClass implements Parcelable {
     public int visual;
     public int auditory;
 
-    public AthenaClass(String name, String description) {
+    public AthenaClass(String name, String description, int img) {
         this.name = name;
         this.description = description;
+        this.img_principal = img;
     }
 
     public void agregarEstudiante(AthenaStudent student)

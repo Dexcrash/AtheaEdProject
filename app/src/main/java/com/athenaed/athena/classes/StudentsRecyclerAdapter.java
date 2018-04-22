@@ -63,11 +63,13 @@ public class StudentsRecyclerAdapter extends RecyclerView.Adapter<StudentsRecycl
 
     public static class StudentsViewHolder extends RecyclerView.ViewHolder{
         TextView tv_student_name;
+        ImageView iv_student;
         CardView cardView ;
 
         public StudentsViewHolder(View itemView) {
             super(itemView);
             tv_student_name = (TextView) itemView.findViewById(R.id.student_name) ;
+            iv_student = itemView.findViewById(R.id.student_img_profile);
             cardView = (CardView) itemView.findViewById(R.id.student_card_view);
         }
     }

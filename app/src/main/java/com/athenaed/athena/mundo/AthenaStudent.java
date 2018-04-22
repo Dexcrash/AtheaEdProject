@@ -13,11 +13,12 @@ public class AthenaStudent implements Parcelable {
     public int visual;
     public int auditory;
 
-    public AthenaStudent(String name) {
+    public AthenaStudent(String name, int img_profile, int kinesthetic, int visual, int auditory) {
         this.name = name;
-        this.kinesthetic = 0;
-        this.visual = 0;
-        this.auditory = 0;
+        this.img_profile = img_profile;
+        this.kinesthetic = kinesthetic;
+        this.visual = visual;
+        this.auditory = auditory;
     }
 
     @Override

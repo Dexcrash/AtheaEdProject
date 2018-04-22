@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.athenaed.athena.R;
@@ -33,19 +34,25 @@ public class ActivityStepsAdapter extends ArrayAdapter<AthenaStep> {
             listItem = LayoutInflater.from(mContext).inflate(R.layout.activity_step_item, parent, false);
         }
 
-        AthenaStep user = arreglo.get(position);
+        AthenaStep step = arreglo.get(position);
 
         // Lookup view for data population
 
-        TextView number = (TextView) listItem.findViewById(R.id.number);
-        TextView title = (TextView) listItem.findViewById(R.id.title);
-        TextView description = (TextView) listItem.findViewById(R.id.description);
+        TextView number = (TextView) listItem.findViewById(R.id.step_number);
+        TextView description = (TextView) listItem.findViewById(R.id.step_description);
+        ImageView image = (ImageView) listItem.findViewById(R.id.step_image);
+
         // Populate the data into the template view using the data object
 
 
-        number.setText("Step " + user.getNumber());
-        title.setText(user.getTitle());
-        description.setText(user.getDescription());
+        number.setText("Paso: " +  (position + 1));
+        description.setText(step.description);
+
+        if(step.img != -1){
+            image.setImageResource(step.img);
+        }else{
+            image.setVisibility(View.GONE);
+        }
         // Return the completed view to render on screen
         return listItem;
     }

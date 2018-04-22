@@ -26,16 +26,26 @@ public class Class_infoFragment extends Fragment {
     private TextView porcentaje2;
     private ProgressBar barra3;
     private TextView porcentaje3;
+    private TextView description;
+    private TextView name;
+
 
     List<AthenaStudent> data = new ArrayList<>();
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_class_info, container, false);
 
-        AthenaClass clasetemp = new AthenaClass("CLASE","Mamadas");
+        Bundle b = getArguments();
+        AthenaClass clasetemp = new AthenaClass((String) b.get("Name"),(String) b.get("Description"), (Integer) b.get("Thumbnail"));
         clasetemp.auditory = 50;
         clasetemp.visual = 40;
         clasetemp.kinesthetic = 60;
+
+        name = view.findViewById(R.id.class_name);
+        name.setText(clasetemp.name);
+
+        description = view.findViewById(R.id.class_description);
+        description.setText(clasetemp.description);
 
         porcentaje1 = view.findViewById(R.id.porcentaje1);
         porcentaje1.setText(clasetemp.auditory + "");
@@ -52,12 +62,11 @@ public class Class_infoFragment extends Fragment {
         barra3 = view.findViewById(R.id.progressBar3);
         barra3.setProgress(clasetemp.visual);
 
-        data.add(new AthenaStudent("Camilo Sánchez"));
-        data.add(new AthenaStudent("Andrés Bejarano"));
-        data.add(new AthenaStudent("Juan Diego Correa"));
-        data.add(new AthenaStudent("Gabriel Pinto"));
-        data.add(new AthenaStudent("David Acuña"));
-        data.add(new AthenaStudent("Julian Arenas"));
+        data.add(new AthenaStudent("Juliana Sánchez", R.drawable.student_2, 3,2,1));
+        data.add(new AthenaStudent("Adriana Ramirez", R.drawable.student_3, 5,2,8));
+        data.add(new AthenaStudent("Andres Duran", R.drawable.student_4, 3,9,6));
+        data.add(new AthenaStudent("Luisa Torres", R.drawable.student_5, 8,4,7));
+        data.add(new AthenaStudent("Carlos Fuentes", R.drawable.student_6, 2,6,3));
 
         RecyclerView recyclerStudents = (RecyclerView) view.findViewById(R.id.students_recycler);
         StudentsRecyclerAdapter studentsAdapter = new StudentsRecyclerAdapter(view.getContext(), data);

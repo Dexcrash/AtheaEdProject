@@ -16,11 +16,11 @@
         android:paddingBottom="100dp">
 
 
-        <EditText
-            android:id="@+id/activity"
+        <TextView
+            android:id="@+id/class_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="8dp"
             android:backgroundTint="@android:color/transparent"
             android:clickable="false"
             android:cursorVisible="false"
@@ -30,9 +30,12 @@
             android:gravity="center"
             android:inputType="textPersonName"
             android:text="Class"
+            android:textSize="24dp"
+            android:textColor="@color/cardview_dark_background"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
         <TextView
@@ -41,136 +44,12 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="452dp"
+            android:layout_marginTop="24dp"
             android:text="Students"
             android:textColor="#000000"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/progressBar3" />
 
-        <TextView
-            android:id="@+id/statistics"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="276dp"
-            android:text="Statistics"
-            android:textColor="#000000"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.049"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ProgressBar
-            android:id="@+id/progressBar1"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="280dp"
-            android:layout_height="18dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="328dp"
-            android:progress="50"
-            android:progressTint="#ff9d00"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.215"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/visual"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="1dp"
-            android:layout_marginTop="230dp"
-            android:text="Visual"
-            app:layout_constraintBottom_toTopOf="@+id/progressBar1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.078"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0" />
-
-        <TextView
-            android:id="@+id/porcentaje1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="328dp"
-            android:text="0%"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.907"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-
-        <ProgressBar
-            android:id="@+id/progressBar2"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="280dp"
-            android:layout_height="18dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="376dp"
-            android:progress="50"
-            android:progressTint="#008cff"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.215"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/kinestesico"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="356dp"
-            android:text="Kinesthetic"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.085"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/porcentaje2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="372dp"
-            android:text="0%"
-            app:layout_constraintStart_toStartOf="@+id/porcentaje1"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ProgressBar
-            android:id="@+id/progressBar3"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="280dp"
-            android:layout_height="18dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="420dp"
-            android:progress="50"
-            android:progressTint="#068623"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.215"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/auditivo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="404dp"
-            android:text="Auditory"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.081"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/porcentaje3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="420dp"
-            android:text="0%"
-            app:layout_constraintStart_toStartOf="@+id/porcentaje2"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/x"
@@ -184,14 +63,14 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/class_image"
             android:layout_width="269dp"
             android:layout_height="170dp"
-            android:layout_marginTop="84dp"
+            android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.504"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/class_name"
             app:srcCompat="@drawable/classimage" />
 
         <android.support.v7.widget.RecyclerView
@@ -201,6 +80,131 @@
             android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/students"
             />
+
+        <TextView
+            android:id="@+id/class_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="TextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/class_image" />
+
+        <TextView
+            android:id="@+id/estadisticas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:inputType="textPersonName"
+            android:text="Estadisticas:"
+            android:textColor="@android:color/black"
+            android:textSize="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/class_description" />
+
+        <ProgressBar
+            android:id="@+id/progressBar1"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="280dp"
+            android:layout_height="18dp"
+            android:layout_marginTop="8dp"
+            android:progress="50"
+            android:progressTint="#ff9d00"
+            app:layout_constraintStart_toStartOf="@+id/visual"
+            app:layout_constraintTop_toBottomOf="@+id/visual" />
+
+        <TextView
+            android:id="@+id/visual"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Visual"
+            app:layout_constraintStart_toStartOf="@+id/estadisticas"
+            app:layout_constraintTop_toBottomOf="@+id/estadisticas" />
+
+        <TextView
+            android:id="@+id/porcentaje1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginStart="24dp"
+            android:text="0%"
+            app:layout_constraintStart_toEndOf="@+id/progressBar1"
+            app:layout_constraintTop_toTopOf="@+id/progressBar1" />
+
+
+        <ProgressBar
+            android:id="@+id/progressBar2"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="280dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="8dp"
+            android:progress="50"
+            android:progressTint="#008cff"
+            app:layout_constraintStart_toStartOf="@+id/kinestesico"
+            app:layout_constraintTop_toBottomOf="@+id/kinestesico" />
+
+        <TextView
+            android:id="@+id/kinestesico"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Kinesthetic"
+            app:layout_constraintStart_toStartOf="@+id/estadisticas"
+            app:layout_constraintTop_toBottomOf="@+id/progressBar1" />
+
+        <TextView
+            android:id="@+id/porcentaje2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginStart="24dp"
+            android:text="0%"
+            app:layout_constraintStart_toEndOf="@+id/progressBar2"
+            app:layout_constraintTop_toTopOf="@+id/progressBar2" />
+
+        <ProgressBar
+            android:id="@+id/progressBar3"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="280dp"
+            android:layout_height="18dp"
+            android:layout_marginTop="8dp"
+            android:progress="50"
+            android:progressTint="#068623"
+            app:layout_constraintStart_toStartOf="@+id/auditivo"
+            app:layout_constraintTop_toBottomOf="@+id/auditivo" />
+
+        <TextView
+            android:id="@+id/auditivo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Auditory"
+            app:layout_constraintStart_toStartOf="@+id/estadisticas"
+            app:layout_constraintTop_toBottomOf="@+id/progressBar2" />
+
+        <TextView
+            android:id="@+id/porcentaje3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginStart="24dp"
+            android:text="0%"
+            app:layout_constraintStart_toEndOf="@+id/progressBar3"
+            app:layout_constraintTop_toTopOf="@+id/progressBar3" />
 
 
     </android.support.constraint.ConstraintLayout>

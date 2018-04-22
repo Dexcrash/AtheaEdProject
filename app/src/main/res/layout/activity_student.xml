@@ -40,7 +40,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/profesor" />
+                app:srcCompat="@color/cardview_dark_background" />
 
             <TextView
                 android:id="@+id/student_name"

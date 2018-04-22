@@ -35,8 +35,19 @@ public class ActivityActivity extends AppCompatActivity {
 
     private void setupViewerPager(ViewPager viewPager){
         ActivityActivity.SectionsPagerAdapter adapter = new ActivityActivity.SectionsPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new Activity_infoFragment(), "Information");
-        adapter.addFragment(new Activity_stepsFragment(), "Activities");
+
+        Bundle b = new Bundle();
+        b.putString("Title",(String) getIntent().getExtras().get("Title"));
+        b.putString("Description",(String) getIntent().getExtras().get("Description"));
+        b.putInt("Thumbnail",(Integer) getIntent().getExtras().get("Thumbnail"));
+
+        Fragment f2 = new Activity_infoFragment();
+        f2.setArguments(b);
+        adapter.addFragment(f2, "Information");
+
+        Fragment f1 = new Activity_stepsFragment();
+        f1.setArguments(b);
+        adapter.addFragment(f1, "Steps");
         viewPager.setAdapter(adapter);
     }
 
