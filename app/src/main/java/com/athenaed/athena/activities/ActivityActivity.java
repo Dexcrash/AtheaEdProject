@@ -9,6 +9,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
 import com.athenaed.athena.R;
+import com.athenaed.athena.mundo.AthenaActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,9 +38,7 @@ public class ActivityActivity extends AppCompatActivity {
         ActivityActivity.SectionsPagerAdapter adapter = new ActivityActivity.SectionsPagerAdapter(getSupportFragmentManager());
 
         Bundle b = new Bundle();
-        b.putString("Title",(String) getIntent().getExtras().get("Title"));
-        b.putString("Description",(String) getIntent().getExtras().get("Description"));
-        b.putInt("Thumbnail",(Integer) getIntent().getExtras().get("Thumbnail"));
+        b.putParcelable("data",(AthenaActivity) getIntent().getExtras().get("data"));
 
         Fragment f2 = new Activity_infoFragment();
         f2.setArguments(b);
@@ -48,6 +47,7 @@ public class ActivityActivity extends AppCompatActivity {
         Fragment f1 = new Activity_stepsFragment();
         f1.setArguments(b);
         adapter.addFragment(f1, "Steps");
+
         viewPager.setAdapter(adapter);
     }
 

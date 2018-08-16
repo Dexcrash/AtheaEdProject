@@ -12,7 +12,8 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingBottom="16dp">
 
         <TextView
             android:id="@+id/class_txt_title"
@@ -30,27 +31,30 @@
         <ImageView
             android:id="@+id/class_image_principal"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="100dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="8dp"
+            android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/class_txt_title"
-            app:srcCompat="@color/colorPrimary"
-            android:scaleType="centerCrop"/>
+            app:srcCompat="@color/colorPrimary" />
 
         <TextView
-            android:layout_width="match_parent"
             android:id="@+id/class_description"
-            android:layout_height="70dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:paddingBottom="8dp"
             android:text="Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ut efficitur ante. Donec vel elit tincidunt, dictum turpis a, mattis tellus. Etiam sodales..."
-            android:textSize="12dp"
+            android:textSize="16dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/class_image_principal" />
 

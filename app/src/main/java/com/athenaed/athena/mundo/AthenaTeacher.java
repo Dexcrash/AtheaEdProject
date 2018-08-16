@@ -13,22 +13,18 @@ public class AthenaTeacher implements Parcelable {
     public int visual;
     public int auditory;
     public ArrayList<AthenaClass> classes = new ArrayList<>();
-    public ArrayList<AthenaStudent> students = new ArrayList<>();
+    public ArrayList<AthenaActivity> activities = new ArrayList<>();
 
-    public AthenaTeacher(String institution, String name) {
+    public AthenaTeacher(String institution, String name, int kinesthetic, int visual, int auditory, ArrayList<AthenaClass> classes, ArrayList<AthenaActivity> activities) {
         this.institution = institution;
         this.name = name;
-        this.kinesthetic = 5;
-        this.visual = 5;
-        this.auditory = 5;
+        this.kinesthetic = kinesthetic;
+        this.visual = visual;
+        this.auditory = auditory;
+        this.classes = classes;
+        this.activities = activities;
     }
 
-    public void addAthenaClass(AthenaClass athenaClass){
-        this.classes.add(athenaClass);
-    }
-    public void addAthenaStudent(AthenaStudent athenaStudent){
-        this.students.add(athenaStudent);
-    }
 
     @Override
     public int describeContents() {
@@ -42,7 +38,8 @@ public class AthenaTeacher implements Parcelable {
         dest.writeInt(this.kinesthetic);
         dest.writeInt(this.visual);
         dest.writeInt(this.auditory);
-        dest.writeList(this.classes);
+        dest.writeTypedList(this.classes);
+        dest.writeTypedList(this.activities);
     }
 
     protected AthenaTeacher(Parcel in) {
@@ -51,11 +48,11 @@ public class AthenaTeacher implements Parcelable {
         this.kinesthetic = in.readInt();
         this.visual = in.readInt();
         this.auditory = in.readInt();
-        this.classes = new ArrayList<AthenaClass>();
-        in.readList(this.classes, AthenaClass.class.getClassLoader());
+        this.classes = in.createTypedArrayList(AthenaClass.CREATOR);
+        this.activities = in.createTypedArrayList(AthenaActivity.CREATOR);
     }
 
-    public static final Parcelable.Creator<AthenaTeacher> CREATOR = new Parcelable.Creator<AthenaTeacher>() {
+    public static final Creator<AthenaTeacher> CREATOR = new Creator<AthenaTeacher>() {
         @Override
         public AthenaTeacher createFromParcel(Parcel source) {
             return new AthenaTeacher(source);

@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="fill_parent"
-android:layout_height="wrap_content"
-android:padding="8dp"
-android:layout_margin="5dp"
-app:cardCornerRadius="20dp"
-    android:id="@+id/student_card_view">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/student_card_view"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="20dp">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:paddingBottom="5dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="20dp">
 
         <ImageView
             android:id="@+id/student_img_profile"
@@ -49,47 +51,44 @@ app:cardCornerRadius="20dp"
             app:layout_constraintStart_toStartOf="@+id/student_name"
             app:layout_constraintTop_toBottomOf="@+id/student_name" />
 
-
-        <ImageView
-            android:id="@+id/activity_image_skill_1"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintStart_toStartOf="@+id/student_img_profile"
-            app:layout_constraintTop_toBottomOf="@+id/student_img_profile"
-            app:srcCompat="@android:color/holo_blue_bright" />
-
-        <ImageView
-            android:id="@+id/activity_image_skill_2"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginStart="16dp"
-            app:layout_constraintStart_toEndOf="@+id/activity_txt_skill_1"
-            app:layout_constraintTop_toTopOf="@+id/activity_image_skill_1"
-            app:srcCompat="@android:color/holo_blue_bright" />
-
-        <ImageView
-            android:id="@+id/activity_image_skill_3"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginStart="16dp"
-            app:layout_constraintStart_toEndOf="@+id/activity_txt_skill_2"
-            app:layout_constraintTop_toTopOf="@+id/activity_image_skill_1"
-            app:srcCompat="@android:color/holo_blue_bright" />
-
         <TextView
             android:id="@+id/activity_txt_skill_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"
-            android:text="TextView"
-            app:layout_constraintStart_toEndOf="@+id/activity_image_skill_1"
-            app:layout_constraintTop_toTopOf="@+id/activity_image_skill_1" />
+            android:layout_marginTop="8dp"
+            android:text="Logica"
+            android:textColor="#000000"
+            android:textSize="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/student_img_profile" />
+
+
+        <TextView
+            android:id="@+id/activity_txt_skill_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:text="Naturalista"
+            android:textColor="#000000"
+            android:textSize="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/activity_txt_skill_2"
+            app:layout_constraintStart_toEndOf="@+id/activity_txt_skill_2" />
+
+
+        <TextView
+            android:id="@+id/activity_txt_skill_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:text="Musical"
+            android:textColor="#000000"
+            android:textSize="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/activity_txt_skill_4"
+            app:layout_constraintStart_toEndOf="@+id/activity_txt_skill_4" />
 
         <TextView
             android:id="@+id/activity_txt_skill_2"
@@ -97,19 +96,36 @@ app:cardCornerRadius="20dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"
-            android:text="TextView"
-            app:layout_constraintStart_toEndOf="@+id/activity_image_skill_2"
-            app:layout_constraintTop_toTopOf="@+id/activity_image_skill_2" />
+            android:text="80%"
+            android:textColor="#000000"
+            android:textSize="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/activity_txt_skill_1"
+            app:layout_constraintStart_toEndOf="@+id/activity_txt_skill_1" />
 
         <TextView
-            android:id="@+id/activity_txt_skill_3"
-            android:layout_width="wrap_content"
+            android:id="@+id/activity_txt_skill_4"
+            android:layout_width="30dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"
-            android:text="TextView"
-            app:layout_constraintStart_toEndOf="@+id/activity_image_skill_3"
-            app:layout_constraintTop_toTopOf="@+id/activity_image_skill_3" />
+            android:text="70%"
+            android:textColor="#000000"
+            android:textSize="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/activity_txt_skill_3"
+            app:layout_constraintStart_toEndOf="@+id/activity_txt_skill_3" />
+
+        <TextView
+            android:id="@+id/activity_txt_skill_6"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:text="10%"
+            android:textColor="#000000"
+            android:textSize="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/activity_txt_skill_5"
+            app:layout_constraintStart_toEndOf="@+id/activity_txt_skill_5" />
+
 
 
     </android.support.constraint.ConstraintLayout>

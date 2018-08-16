@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.athenaed.athena.TabbedMain">
+    tools:context="com.athenaed.athena.TabbedMain"
+    android:orientation="vertical">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
@@ -26,14 +27,18 @@
 
         </android.support.v7.widget.Toolbar>
     </android.support.design.widget.AppBarLayout>
-        <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true">
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingBottom="20dp">
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/student_activity_image"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_marginTop="80dp"
@@ -42,141 +47,104 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@color/cardview_dark_background" />
 
-            <TextView
-                android:id="@+id/student_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Nombre"
-                android:textColor="@android:color/black"
-                android:textSize="24sp"
+        <TextView
+            android:id="@+id/student_activity_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Nombre"
+            android:textColor="@android:color/black"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/student_activity_image" />
+
+        <TextView
+            android:id="@+id/student_activity_institution"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Institution:"
+            android:textColor="@android:color/black"
+            android:textSize="24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/student_activity_name" />
+
+        <TextView
+            android:id="@+id/student_activity_label_coment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Comentarios:"
+            android:textColor="@android:color/black"
+            android:textSize="24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/student_activity_institution" />
+
+
+        <TextView
+            android:id="@+id/student_activity_comentarios"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Comentarios"
+            android:textColor="@android:color/black"
+            android:textSize="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/student_activity_label_coment" />
+
+        <TextView
+            android:id="@+id/student_activity_statistics"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:inputType="textPersonName"
+            android:text="Estadisticas:"
+            android:textColor="@android:color/black"
+            android:textSize="24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/student_activity_comentarios" />
+
+        <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/students_activity_linechart"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginRight="32dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView" />
+                app:layout_constraintTop_toBottomOf="@+id/student_activity_statistics" />
 
-            <TextView
-                android:id="@+id/institucion"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:textColor="@android:color/black"
-                android:textSize="24sp"
-                android:text="Institution:"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/student_name" />
+        <com.github.mikephil.charting.charts.HorizontalBarChart
+            android:id="@+id/student_activity_barchart"
+            android:layout_width="match_parent"
+            android:layout_height="249dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/students_activity_linechart" />
 
-            <TextView
-                android:id="@+id/estadisticas"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:textColor="@android:color/black"
-                android:textSize="16dp"
-                android:inputType="textPersonName"
-                android:text="Estadisticas:"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/institucion" />
-
-            <ProgressBar
-                android:id="@+id/progressBar1"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="280dp"
-                android:layout_height="18dp"
-                android:layout_marginTop="8dp"
-                android:progress="50"
-                android:progressTint="#ff9d00"
-                app:layout_constraintStart_toStartOf="@+id/visual"
-                app:layout_constraintTop_toBottomOf="@+id/visual" />
-
-            <TextView
-                android:id="@+id/visual"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:text="Visual"
-                app:layout_constraintStart_toStartOf="@+id/estadisticas"
-                app:layout_constraintTop_toBottomOf="@+id/estadisticas" />
-
-            <TextView
-                android:id="@+id/porcentaje1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="24dp"
-                android:layout_marginStart="24dp"
-                android:text="0%"
-                app:layout_constraintStart_toEndOf="@+id/progressBar1"
-                app:layout_constraintTop_toTopOf="@+id/progressBar1" />
-
-
-            <ProgressBar
-                android:id="@+id/progressBar2"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="280dp"
-                android:layout_height="20dp"
-                android:layout_marginTop="8dp"
-                android:progress="50"
-                android:progressTint="#008cff"
-                app:layout_constraintStart_toStartOf="@+id/kinestesico"
-                app:layout_constraintTop_toBottomOf="@+id/kinestesico" />
-
-            <TextView
-                android:id="@+id/kinestesico"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:text="Kinesthetic"
-                app:layout_constraintStart_toStartOf="@+id/estadisticas"
-                app:layout_constraintTop_toBottomOf="@+id/progressBar1" />
-
-            <TextView
-                android:id="@+id/porcentaje2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="24dp"
-                android:layout_marginStart="24dp"
-                android:text="0%"
-                app:layout_constraintStart_toEndOf="@+id/progressBar2"
-                app:layout_constraintTop_toTopOf="@+id/progressBar2" />
-
-            <ProgressBar
-                android:id="@+id/progressBar3"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="280dp"
-                android:layout_height="18dp"
-                android:layout_marginTop="8dp"
-                android:progress="50"
-                android:progressTint="#068623"
-                app:layout_constraintStart_toStartOf="@+id/auditivo"
-                app:layout_constraintTop_toBottomOf="@+id/auditivo" />
-
-            <TextView
-                android:id="@+id/auditivo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:text="Auditory"
-                app:layout_constraintStart_toStartOf="@+id/estadisticas"
-                app:layout_constraintTop_toBottomOf="@+id/progressBar2" />
-
-            <TextView
-                android:id="@+id/porcentaje3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="24dp"
-                android:layout_marginStart="24dp"
-                android:text="0%"
-                app:layout_constraintStart_toEndOf="@+id/progressBar3"
-                app:layout_constraintTop_toTopOf="@+id/progressBar3" />
-        </android.support.constraint.ConstraintLayout>
+    </android.support.constraint.ConstraintLayout>
+    </ScrollView>
 </android.support.design.widget.CoordinatorLayout>

@@ -1,33 +1,48 @@
 package com.athenaed.athena.classes;
 
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.athenaed.athena.R;
 import com.athenaed.athena.mundo.AthenaClass;
 import com.athenaed.athena.mundo.AthenaStudent;
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.Description;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
+import com.github.mikephil.charting.formatter.PercentFormatter;
+import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Class_infoFragment extends Fragment {
 
-    private ProgressBar barra1;
-    private TextView porcentaje1;
-    private ProgressBar barra2;
-    private TextView porcentaje2;
-    private ProgressBar barra3;
-    private TextView porcentaje3;
+    private ImageView image;
     private TextView description;
     private TextView name;
+    private PieChart piechart;
 
 
     List<AthenaStudent> data = new ArrayList<>();
@@ -36,51 +51,72 @@ public class Class_infoFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_class_info, container, false);
 
         Bundle b = getArguments();
-        AthenaClass clasetemp = new AthenaClass((String) b.get("Name"),(String) b.get("Description"), (Integer) b.get("Thumbnail"));
-        clasetemp.auditory = 50;
-        clasetemp.visual = 40;
-        clasetemp.kinesthetic = 60;
+        AthenaClass clasetemp = (AthenaClass) b.get("data");
 
-        name = view.findViewById(R.id.class_name);
+        name = view.findViewById(R.id.class_activity_name);
         name.setText(clasetemp.name);
 
         description = view.findViewById(R.id.class_description);
         description.setText(clasetemp.description);
 
-        porcentaje1 = view.findViewById(R.id.porcentaje1);
-        porcentaje1.setText(clasetemp.auditory + "");
-        barra1 = view.findViewById(R.id.progressBar1);
-        barra1.setProgress(clasetemp.auditory);
+        image = view.findViewById(R.id.class_activity_image);
+        image.setImageResource(clasetemp.img_principal);
 
-        porcentaje2 = view.findViewById(R.id.porcentaje2);
-        porcentaje2.setText(clasetemp.kinesthetic + "");
-        barra2 = view.findViewById(R.id.progressBar2);
-        barra2.setProgress(clasetemp.kinesthetic);
+        piechart = view.findViewById(R.id.class_activity_piechart);
 
-        porcentaje3 = view.findViewById(R.id.porcentaje3);
-        porcentaje3.setText(clasetemp.visual + "");
-        barra3 = view.findViewById(R.id.progressBar3);
-        barra3.setProgress(clasetemp.visual);
+        //PieChart Config
 
-        data.add(new AthenaStudent("Juliana Sánchez", R.drawable.student_2, 3,2,1));
-        data.add(new AthenaStudent("Adriana Ramirez", R.drawable.student_3, 5,2,8));
-        data.add(new AthenaStudent("Andres Duran", R.drawable.student_4, 3,9,6));
-        data.add(new AthenaStudent("Luisa Torres", R.drawable.student_5, 8,4,7));
-        data.add(new AthenaStudent("Carlos Fuentes", R.drawable.student_6, 2,6,3));
+        List<PieEntry> pieEntries = new ArrayList<PieEntry>();
+        pieEntries.add(new PieEntry(15,"Musical"));
+        pieEntries.add(new PieEntry(5,"Interpersonal"));
+        pieEntries.add(new PieEntry(20,"Corporal"));
+        pieEntries.add(new PieEntry(12,"Naturalista"));
+        pieEntries.add(new PieEntry(8,"Linguistica"));
+        pieEntries.add(new PieEntry(19,"Intrapersonal"));
+        pieEntries.add(new PieEntry(11,"Espacial"));
+        pieEntries.add(new PieEntry(10,"Logica"));
 
-        RecyclerView recyclerStudents = (RecyclerView) view.findViewById(R.id.students_recycler);
+        PieDataSet piedataset = new PieDataSet(pieEntries,"");
+
+        // add a lot of colors
+        ArrayList<Integer> colors = new ArrayList<Integer>();
+
+        for (int c : ColorTemplate.JOYFUL_COLORS)
+            colors.add(c);
+
+
+        piedataset.setValueLinePart1OffsetPercentage(80.f);
+        piedataset.setValueLinePart1Length(0.2f);
+        piedataset.setValueLinePart2Length(0.4f);
+        //dataSet.setUsingSliceColorAsValueLineColor(true);
+
+        //dataSet.setXValuePosition(PieDataSet.ValuePosition.OUTSIDE_SLICE);
+        piedataset.setYValuePosition(PieDataSet.ValuePosition.OUTSIDE_SLICE);
+        piedataset.setColors(colors);
+        piedataset.setValueTextColor(Color.BLACK);
+        PieData piedata = new PieData(piedataset);
+        Description d = new Description();
+        d.setText("");
+
+        //dataSet.setSelectionShift(0f);
+        piedata.setValueFormatter(new PercentFormatter());
+        piedata.setValueTextSize(11f);
+        piedata.setValueTextColor(Color.BLACK);
+
+        piechart.setDescription(d);
+        piechart.setData(piedata);
+        piechart.invalidate();
+
+        data = clasetemp.students;
+        RecyclerView recyclerStudents = (RecyclerView) view.findViewById(R.id.class_activity_students_recycler);
         StudentsRecyclerAdapter studentsAdapter = new StudentsRecyclerAdapter(view.getContext(), data);
-        GridLayoutManager grid = new GridLayoutManager(view.getContext(),1){
+        recyclerStudents.setLayoutManager(new LinearLayoutManager(view.getContext()){
             @Override
             public boolean canScrollVertically() {
                 return false;
             }
-        };
-
-        recyclerStudents.setLayoutManager(grid);
+        });
         recyclerStudents.setAdapter(studentsAdapter);
-        recyclerStudents.setFocusableInTouchMode(false);
         return view;
     }
-
 }

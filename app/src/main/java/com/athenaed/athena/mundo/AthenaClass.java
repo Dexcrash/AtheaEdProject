@@ -17,16 +17,23 @@ public class AthenaClass implements Parcelable {
     public int visual;
     public int auditory;
 
-    public AthenaClass(String name, String description, int img) {
+    public AthenaClass(ArrayList<AthenaStudent> students, String type, String name, String description, int img_principal, int average, int kinesthetic, int visual, int auditory) {
+        this.students = students;
+        this.type = type;
         this.name = name;
         this.description = description;
-        this.img_principal = img;
+        this.img_principal = img_principal;
+        this.average = average;
+        this.kinesthetic = kinesthetic;
+        this.visual = visual;
+        this.auditory = auditory;
     }
 
     public void agregarEstudiante(AthenaStudent student)
     {
         this.students.add(student);
     }
+
 
     @Override
     public int describeContents() {
@@ -35,7 +42,7 @@ public class AthenaClass implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeList(this.students);
+        dest.writeTypedList(this.students);
         dest.writeString(this.type);
         dest.writeString(this.name);
         dest.writeString(this.description);
@@ -47,8 +54,7 @@ public class AthenaClass implements Parcelable {
     }
 
     protected AthenaClass(Parcel in) {
-        this.students = new ArrayList<AthenaStudent>();
-        in.readList(this.students, AthenaStudent.class.getClassLoader());
+        this.students = in.createTypedArrayList(AthenaStudent.CREATOR);
         this.type = in.readString();
         this.name = in.readString();
         this.description = in.readString();
@@ -59,7 +65,7 @@ public class AthenaClass implements Parcelable {
         this.auditory = in.readInt();
     }
 
-    public static final Parcelable.Creator<AthenaClass> CREATOR = new Parcelable.Creator<AthenaClass>() {
+    public static final Creator<AthenaClass> CREATOR = new Creator<AthenaClass>() {
         @Override
         public AthenaClass createFromParcel(Parcel source) {
             return new AthenaClass(source);

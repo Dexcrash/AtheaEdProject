@@ -48,13 +48,8 @@ public class ClassesRecyclerAdapter extends RecyclerView.Adapter<ClassesRecycler
             public void onClick(View v) {
 
                 Intent intent = new Intent(mContext,ClassActivity.class);
-                // passing data to the book activity
-                intent.putExtra("Name",mData.get(position).name);
-                intent.putExtra("Description",mData.get(position).description);
-                intent.putExtra("Thumbnail",mData.get(position).img_principal);
-                // start the activity
+                intent.putExtra("data", mData.get(position));
                 mContext.startActivity(intent);
-
             }
         });
     }

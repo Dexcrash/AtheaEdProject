@@ -14,13 +14,12 @@ public class AthenaActivity implements Parcelable {
     public int kinesthetic;
     public int visual;
     public int auditory;
-    public List<String> steps;
-    public List<Integer> imgs;
+    public ArrayList<AthenaStep> steps;
 
 
     public AthenaActivity(){    }
 
-    public AthenaActivity(String name, String description, int img_principal, int kinesthetic, int visual, int auditory, List<String> steps, List<Integer> imgs) {
+    public AthenaActivity(String name, String description, int img_principal, int kinesthetic, int visual, int auditory, ArrayList<AthenaStep> steps) {
         this.name = name;
         this.description = description;
         this.img_principal = img_principal;
@@ -28,8 +27,8 @@ public class AthenaActivity implements Parcelable {
         this.visual = visual;
         this.auditory = auditory;
         this.steps = steps;
-        this.imgs = imgs;
     }
+
 
     @Override
     public int describeContents() {
@@ -44,8 +43,7 @@ public class AthenaActivity implements Parcelable {
         dest.writeInt(this.kinesthetic);
         dest.writeInt(this.visual);
         dest.writeInt(this.auditory);
-        dest.writeStringList(this.steps);
-        dest.writeList(this.imgs);
+        dest.writeTypedList(this.steps);
     }
 
     protected AthenaActivity(Parcel in) {
@@ -55,9 +53,7 @@ public class AthenaActivity implements Parcelable {
         this.kinesthetic = in.readInt();
         this.visual = in.readInt();
         this.auditory = in.readInt();
-        this.steps = in.createStringArrayList();
-        this.imgs = new ArrayList<Integer>();
-        in.readList(this.imgs, Integer.class.getClassLoader());
+        this.steps = in.createTypedArrayList(AthenaStep.CREATOR);
     }
 
     public static final Creator<AthenaActivity> CREATOR = new Creator<AthenaActivity>() {

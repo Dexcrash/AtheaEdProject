@@ -39,8 +39,13 @@ public class ActivityRecyclerAdapter extends RecyclerView.Adapter<ActivityRecycl
 
     @Override
     public void onBindViewHolder(ActivityViewHolder holder, final int position) {
-        holder.tv_activity_title.setText(mData.get(position).name);
+        AthenaActivity current =  mData.get(position);
+        holder.tv_activity_title.setText(current.name);
+        holder.tv_activity_skill_1.setText(current.visual + "0%");
+        holder.tv_activity_skill_2.setText(current.auditory + "0%");
+        holder.tv_activity_skill_3.setText(current.kinesthetic + "0%");
         holder.img_activity_thumbnail.setImageResource(mData.get(position).img_principal);
+
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,9 +53,7 @@ public class ActivityRecyclerAdapter extends RecyclerView.Adapter<ActivityRecycl
                 Intent intent = new Intent(mContext,ActivityActivity.class);
 
                 // passing data to the book activity
-                intent.putExtra("Title",mData.get(position).name);
-                intent.putExtra("Description",mData.get(position).description);
-                intent.putExtra("Thumbnail",mData.get(position).img_principal);
+                intent.putExtra("data",mData.get(position));
                 // start the activity
                 mContext.startActivity(intent);
 
@@ -65,12 +68,18 @@ public class ActivityRecyclerAdapter extends RecyclerView.Adapter<ActivityRecycl
 
     public static class ActivityViewHolder extends RecyclerView.ViewHolder{
         TextView tv_activity_title;
+        TextView tv_activity_skill_1;
+        TextView tv_activity_skill_2;
+        TextView tv_activity_skill_3;
         ImageView img_activity_thumbnail;
         CardView cardView ;
 
         public ActivityViewHolder(View itemView) {
             super(itemView);
             tv_activity_title = (TextView) itemView.findViewById(R.id.activity_txt_title) ;
+            tv_activity_skill_1 = (TextView) itemView.findViewById(R.id.activity_txt_skill_1);
+            tv_activity_skill_2 = (TextView) itemView.findViewById(R.id.activity_txt_skill_2);
+            tv_activity_skill_3 = (TextView) itemView.findViewById(R.id.activity_txt_skill_3);
             img_activity_thumbnail = (ImageView) itemView.findViewById(R.id.activity_img_principal);
             cardView = (CardView) itemView.findViewById(R.id.activity_card_view);
         }

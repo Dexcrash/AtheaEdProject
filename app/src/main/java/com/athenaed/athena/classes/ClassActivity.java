@@ -1,6 +1,7 @@
 package com.athenaed.athena.classes;
 
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -37,18 +38,19 @@ public class ClassActivity  extends AppCompatActivity {
 
     private void setupViewerPager(ViewPager viewPager){
         ClassActivity.SectionsPagerAdapter adapter = new ClassActivity.SectionsPagerAdapter(getSupportFragmentManager());
-        Fragment info = new Class_infoFragment();
-        Bundle b = new Bundle();
-        b.putString("Name", (String) getIntent().getExtras().get("Name"));
-        b.putString("Description", (String) getIntent().getExtras().get("Description"));
-        b.putInt("Thumbnail", (Integer) getIntent().getExtras().get("Thumbnail"));
-        info.setArguments(b);
 
-        adapter.addFragment(info, "Information");
+        //Fragmento de información de la clase
+        Fragment fragmentInfo = new Class_infoFragment();
+        Bundle infoClass = new Bundle();
+        infoClass.putParcelable("data", (Parcelable) getIntent().getExtras().get("data"));
+        fragmentInfo.setArguments(infoClass);
+        adapter.addFragment(fragmentInfo, "Information");
+
+        //Fragmento de las actividades de la clase
         adapter.addFragment(new Class_activitiesFragment(), "Activities");
+
         viewPager.setAdapter(adapter);
     }
-
 
 
     /**

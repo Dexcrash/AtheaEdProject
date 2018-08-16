@@ -9,17 +9,30 @@ public class AthenaStudent implements Parcelable {
 
     public String name;
     public int img_profile;
-    public int kinesthetic;
-    public int visual;
-    public int auditory;
+    public double musical;
+    public double corporal;
+    public double interpersonal;
+    public double linguistico;
+    public double logico;
+    public double naturalista;
+    public double intrapersonal;
+    public double visual;
+    public String comentarios;
 
-    public AthenaStudent(String name, int img_profile, int kinesthetic, int visual, int auditory) {
+    public AthenaStudent(String name, int img_profile, double musical, double corporal, double interpersonal, double linguistico, double logico, double naturalista, double intrapersonal, double visual, String comentarios) {
         this.name = name;
         this.img_profile = img_profile;
-        this.kinesthetic = kinesthetic;
+        this.musical = musical;
+        this.corporal = corporal;
+        this.interpersonal = interpersonal;
+        this.linguistico = linguistico;
+        this.logico = logico;
+        this.naturalista = naturalista;
+        this.intrapersonal = intrapersonal;
         this.visual = visual;
-        this.auditory = auditory;
+        this.comentarios = comentarios;
     }
+
 
     @Override
     public int describeContents() {
@@ -29,16 +42,30 @@ public class AthenaStudent implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(this.name);
-        dest.writeInt(this.kinesthetic);
-        dest.writeInt(this.visual);
-        dest.writeInt(this.auditory);
+        dest.writeInt(this.img_profile);
+        dest.writeDouble(this.musical);
+        dest.writeDouble(this.corporal);
+        dest.writeDouble(this.interpersonal);
+        dest.writeDouble(this.linguistico);
+        dest.writeDouble(this.logico);
+        dest.writeDouble(this.naturalista);
+        dest.writeDouble(this.intrapersonal);
+        dest.writeDouble(this.visual);
+        dest.writeString(this.comentarios);
     }
 
     protected AthenaStudent(Parcel in) {
         this.name = in.readString();
-        this.kinesthetic = in.readInt();
-        this.visual = in.readInt();
-        this.auditory = in.readInt();
+        this.img_profile = in.readInt();
+        this.musical = in.readDouble();
+        this.corporal = in.readDouble();
+        this.interpersonal = in.readDouble();
+        this.linguistico = in.readDouble();
+        this.logico = in.readDouble();
+        this.naturalista = in.readDouble();
+        this.intrapersonal = in.readDouble();
+        this.visual = in.readDouble();
+        this.comentarios = in.readString();
     }
 
     public static final Parcelable.Creator<AthenaStudent> CREATOR = new Parcelable.Creator<AthenaStudent>() {
